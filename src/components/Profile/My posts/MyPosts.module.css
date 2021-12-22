@@ -1,0 +1,21 @@
+.post{
+    padding: 10px;
+}
+
+.btn{
+    background: #27aae1;
+    margin: 5px;
+	padding: 7px 25px;
+	border: none;
+	font-size: 14px;
+	border-radius: 4px;
+	color: #fff;
+	position: relative;
+    touch-action: manipulation;
+    cursor: pointer;
+    font-weight: 600;
+    outline: none;
+    border-radius: 30px;
+    overflow: visible;
+
+}
