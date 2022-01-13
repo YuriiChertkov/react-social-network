@@ -92,14 +92,14 @@ export const UpdateNewPostTextActionCreator = (text) => {
   };
 };
 
-export const UpdateNewMessageBodyActionCreator = (body) => {
+export const updateNewMessageBodyCreator = (body) => {
   return {
     type: UPDATE_NEW_MESSAGE_BODY,
     body: body,
   };
 };
 
-export const SendMessageActionCreator = () => {
+export const sendMessageCreator = () => {
   return {
     type: SEND_MESSAGE,
   };
