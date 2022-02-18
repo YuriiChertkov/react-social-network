@@ -16,19 +16,10 @@ const App = (props) => {
         <Header />
         <Navbar />
         <div className="app-wrapper-content">
-          <Route
-            path="/dialogs"
-            render={() => <DialogsContainer />}
-          />
-          <Route
-            path="/profile"
-            render={() => <Profile />}
-          />
+          <Route path="/dialogs" render={() => <DialogsContainer />} />
+          <Route path="/profile" render={() => <Profile />} />
           <Route path="/news" component={News} />
-          <Route
-            path="/users"
-            render={() => <UsersContainer />}
-          />
+          <Route path="/users" render={() => <UsersContainer />} />
           <Route path="/music" component={Music} />
         </div>
       </div>
@@ -37,5 +28,3 @@ const App = (props) => {
 };
 
 export default App;
-
-
