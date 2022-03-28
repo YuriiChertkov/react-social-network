@@ -13,7 +13,9 @@ const ProfileInfo = (props) => {
       </div>
       <div className={s.profileinfo}>
         <div><img src={props.profile.photos.large}/></div>
-        Contacts: <img src={props.profile.photos.small}/>
+        <h3>Contacts:</h3>  
+       <p>{props.profile.contacts.vk}</p>
+       <p>{props.profile.contacts.twitter}</p> 
         </div>
     </div>
   );
