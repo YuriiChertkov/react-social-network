@@ -3,6 +3,14 @@
     background-color: rgb(117, 175, 29);
   
   }
+
   .header img {
     width: 40px;
+  }
+
+  .login {
+    float: right;
+  }
+  .login a {
+    color: aliceblue;
   }
