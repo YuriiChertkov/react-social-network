@@ -26,9 +26,15 @@ export const usersAPI = {
     });
   },
 
-  getLoginUser (){
-      return instance.get (`auth/me`).then((response)=>{
-          return response.data;
-      })
+  getLoginUser() {
+    return instance.get(`auth/me`).then((response) => {
+      return response.data;
+    });
+  },
+
+  getProfile(userId) {
+    return instance.get(`profile`+ userId ).then((response) => {
+      return response.data;
+    });
   },
 };
