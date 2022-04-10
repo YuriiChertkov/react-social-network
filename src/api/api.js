@@ -33,8 +33,6 @@ export const usersAPI = {
   },
 
   getProfile(userId) {
-    return instance.get(`profile`+ userId ).then((response) => {
-      return response.data;
-    });
+    return instance.get(`profile/` + userId);
   },
 };
