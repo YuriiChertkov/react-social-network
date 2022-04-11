@@ -1,5 +1,4 @@
-import { usersAPI } from "../api/api";
-
+import { usersAPI } from "./../api/api";
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SET_PROFILE_USER = "SET_PROFILE_USER";
@@ -58,7 +57,7 @@ export const setProfileUser = (profile) => {
   };
 };
 
-export const getProfileUser = (userId) => (dispatch) => {
+export const getUserProfile = (userId) => (dispatch) => {
   usersAPI.getProfile(userId).then((response) => {
     dispatch(setProfileUser(response.data));
   });

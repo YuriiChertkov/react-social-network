@@ -4,12 +4,15 @@ import {
 } from "../../redux/dialogs_reducer";
 import Dialogs from "./Dialogs";
 import { connect } from "react-redux";
+import { withLoginRedirect } from "../../hoc/LoginRedirect";
 
 let mapStateToProps = (state) => {
   return {
     dialogsPage: state.dialogsPage,
   };
 };
+
+let LoginRedirectComponent = withLoginRedirect(Dialogs);
 
 let mapDispatchToProps = (dispatch) => {
   return {
@@ -22,6 +25,9 @@ let mapDispatchToProps = (dispatch) => {
   };
 };
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+const DialogsContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginRedirectComponent);
 
 export default DialogsContainer;

@@ -149,5 +149,4 @@ export const unfollowUsers = (id) => {
   };
 };
 
-
 export default usersReducer;
