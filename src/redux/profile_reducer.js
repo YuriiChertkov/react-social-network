@@ -81,10 +81,10 @@ export const getStatus = (userId) => (dispatch) => {
   });
 };
 
-export const updateStatus = (userId) => (dispatch) => {
-  usersAPI.updateStatus(userId).then((response) => {
+export const updateStatus = (status) => (dispatch) => {
+  usersAPI.updateStatus(status).then((response) => {
     if (response.data.resultCode === 0) {
-      dispatch(setStatus(response.data));
+      dispatch(setStatus(status));
     }
   });
 };
