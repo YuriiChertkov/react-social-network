@@ -36,4 +36,14 @@ export const authUser = () => (dispatch) => {
   });
 };
 
+export const login = (email, password, rememberMe) => (dispatch) => {
+  usersAPI.getLoginUser().then((data) => {
+    if (data.resultCode === 0) {
+      let { id, login, email } = data.data;
+      dispatch(setLoginUserData(id, login, email));
+    }
+  });
+};
+
+
 export default loginReducer;
