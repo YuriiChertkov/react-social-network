@@ -13,7 +13,7 @@ const loginReducer = (state = initialState, action) => {
     case SET_USER_DATA:
       return {
         ...state,
-        ...action.data,
+        ...action.payload,
         isLogined: true,
       };
 
@@ -22,28 +22,33 @@ const loginReducer = (state = initialState, action) => {
   }
 };
 
-export const setLoginUserData = (id, login, email) => ({
+export const setLoginUserData = (id, login, email, isLogined) => ({
   type: SET_USER_DATA,
-  data: { id, login, email },
+  payload: { id, login, email, isLogined },
 });
 
 export const authUser = () => (dispatch) => {
   usersAPI.getLoginUser().then((data) => {
     if (data.resultCode === 0) {
       let { id, login, email } = data.data;
-      dispatch(setLoginUserData(id, login, email));
+      dispatch(setLoginUserData(id, login, email, true));
     }
   });
 };
 
 export const login = (email, password, rememberMe) => (dispatch) => {
-  usersAPI.getLoginUser().then((data) => {
+  usersAPI.login(email, password, rememberMe).then((data) => {
     if (data.resultCode === 0) {
-      let { id, login, email } = data.data;
-      dispatch(setLoginUserData(id, login, email));
+      dispatch(authUser());
     }
   });
 };
-
+export const logout = () => (dispatch) => {
+  usersAPI.logout().then((data) => {
+    if (data.resultCode === 0) {
+      dispatch(setLoginUserData(null, null, null, false));
+    }
+  });
+};
 
 export default loginReducer;

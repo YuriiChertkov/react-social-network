@@ -35,7 +35,22 @@ export const usersAPI = {
   getStatus(userId) {
     return instance.get(`profile/status/` + userId);
   },
+
   updateStatus(status) {
     return instance.put(`profile/status/`, { status: status });
+  },
+
+  async login(email, password, rememberMe = false) {
+    const response = await instance.put(`auth/login`, {
+      email,
+      password,
+      rememberMe,
+    });
+    return response.data;
+  },
+
+  async logout() {
+    const response = await instance.delete(`auth/login`);
+    return response.data;
   },
 };
