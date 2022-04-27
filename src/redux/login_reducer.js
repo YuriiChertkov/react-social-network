@@ -43,7 +43,8 @@ export const login = (email, password, rememberMe) => (dispatch) => {
       dispatch(authUser());
     }
     else{
-      let action = stopSubmit();
+      let message = data.messages.length>0 ? data.messages[0]:" Error"
+      dispatch(stopSubmit('login',{_error: message}));
     }
   });
 };
