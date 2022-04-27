@@ -1,4 +1,5 @@
 import { usersAPI } from "./../api/api";
+import { stopSubmit } from "redux-form";
 const SET_USER_DATA = "SET_USER_DATA";
 
 let initialState = {
@@ -14,7 +15,7 @@ const loginReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.payload,
-        isLogined: true,
+        
       };
 
     default:
@@ -40,6 +41,9 @@ export const login = (email, password, rememberMe) => (dispatch) => {
   usersAPI.login(email, password, rememberMe).then((data) => {
     if (data.resultCode === 0) {
       dispatch(authUser());
+    }
+    else{
+      let action = stopSubmit();
     }
   });
 };

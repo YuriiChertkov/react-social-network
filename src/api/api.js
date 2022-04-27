@@ -41,7 +41,7 @@ export const usersAPI = {
   },
 
   async login(email, password, rememberMe = false) {
-    const response = await instance.put(`auth/login`, {
+    const response = await instance.post(`auth/login`, {
       email,
       password,
       rememberMe,

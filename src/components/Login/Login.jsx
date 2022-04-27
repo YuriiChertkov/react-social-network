@@ -5,6 +5,7 @@ import { reduxForm } from "redux-form";
 import { required } from "../../utils/validators/validators";
 import { Element } from "../common/FormElements/FormElements";
 import { login } from "../../redux/login_reducer";
+import { Redirect } from "react-router-dom";
 
 const Input = Element("input");
 const LoginForm = (props) => {
@@ -43,6 +44,11 @@ const Login = (props) => {
   const onSubmit = (formData) => {
     props.login(formData.email, formData.password, formData.rememberMe);
   };
+
+  if(props.isLogined){
+    return <Redirect to={"/profile"}/>
+  }
+
   return (
     <div>
       <h1>Login</h1>
@@ -54,4 +60,7 @@ const Login = (props) => {
 const LoginReduxForm = reduxForm({
   form: "login",
 })(LoginForm);
-export default connect(null, {login}) (Login);
+const mapStateToProps = (state)=>({
+  isLogined: state.login.isLogined
+})
+export default connect(mapStateToProps, {login}) (Login);
