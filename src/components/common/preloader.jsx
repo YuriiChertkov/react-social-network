@@ -3,7 +3,7 @@ import preloader from "../../assets/images/preloader.svg";
 
 const Preloader = ()=>{
     return <div style = {{backgroundColor: 'white'}}>
-         <img src={preloader} />
+         <img src={preloader} alt = "preloader" />
          </div>
     
 }

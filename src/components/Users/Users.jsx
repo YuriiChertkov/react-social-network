@@ -2,7 +2,7 @@ import React from "react";
 import s from "./users.module.css";
 import userPhoto from "../../assets/images/icon.jpg";
 import { NavLink } from "react-router-dom";
-import { usersAPI } from "../../api/api";
+
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalCountUsers / props.pageSize);
@@ -35,6 +35,7 @@ const Users = (props) => {
                 <img
                   src={u.photos.small != null ? u.photos.small : userPhoto}
                   className={s.img}
+                  alt = "Avatar"
                 />
               </NavLink>
             </div>
